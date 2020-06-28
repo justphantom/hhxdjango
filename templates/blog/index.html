@@ -2,9 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>MyBlog</title>
 </head>
 <body>
-<h1>{{ welcome }}</h1>
+{% for post in post_list %}
+<article class="post post-{{ post.pk }}">
+
+</article>
+{% empty %}
+<div class="no-post">Nothing!</div>
+{% endfor %}
 </body>
 </html>

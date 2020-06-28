@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 
 
 # from django.http import HttpResponse
@@ -6,7 +7,5 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request, 'blog/index.html', context={
-        'title': 'My Blog Home Page',
-        'welcome': 'Welcome to my blog',
-    })
+    post_list = Post.objects.all().order_by('-created_time')
+    return render(request, 'blog/index.html', context={'post_list': post_list})
