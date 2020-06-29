@@ -15,7 +15,7 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 5px;
     float: right;
-    box-shadow: 0 0 3px 0px black;
+    box-shadow: 0 0 1px 0px black;
     text-indent: 0;
     text-align: center;
 }
@@ -50,4 +50,31 @@ a {
 .post-content {
     font-size: 1rem;
     padding-top: 10px;
+}
+
+.codehilite {
+    padding: 0;
+}
+
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    color: #ccc;
+    border-right: 1px solid #CCC;
+    vertical-align: top;
+    padding-right: 5px;
+}
+
+.hljs-ln-n {
+    width: 30px;
+}
+
+.hljs-ln .hljs-ln-code {
+    padding-left: 10px;
+    white-space: pre;
 }
