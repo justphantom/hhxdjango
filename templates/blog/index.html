@@ -6,8 +6,9 @@
 </head>
 <body>
 {% for post in post_list %}
-<article class="post post-{{ post.pk }}">
-
+<article>
+<h1>{{ post.title }}</h1>
+<p>{{ post.excerpt }}</p>
 </article>
 {% empty %}
 <div class="no-post">Nothing!</div>
