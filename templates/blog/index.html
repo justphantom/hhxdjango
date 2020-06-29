@@ -1,18 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>MyBlog</title>
 </head>
+
 <body>
-{% for post in post_list %}
-<article>
-<h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-<p>{{ post.excerpt }}</p>
-</article>
-{% empty %}
-<div class="no-post">Nothing!</div>
-{% endfor %}
+    {% for post in post_list %}
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            {{ post.modified_time }}
+        </date>
+
+        <div class="post-meta">
+            <span>|</span>
+
+            <span class="meta-category"><a href="javascript:void(0);">{{ post.category }}</a></span>
+
+        </div>
+
+        <div class="post-content">
+            {{ post.excerpt }}
+        </div>
+        <p class="readmore"><a href="{{ post.get_absolute_url }}">阅读全文</a></p>
+    </article>
+    {% empty %}
+    <div class="no-post">Nothing!</div>
+    {% endfor %}
 </body>
+
 </html>

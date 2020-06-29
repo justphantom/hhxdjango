@@ -1,24 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ post.title }}</title>
-    <link rel="stylesheet"
-      href="{% static 'css/highlight.min.css' %}">
-      <link rel="stylesheet"
-      href="{% static 'css/main.css' %}">
-<script src="{% static 'js/highlight.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/highlight.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/highlight.min.js' %}"></script>
 </head>
+
 <body>
-<article>
-<h1>{{ post.title }}</h1>
-{{ post.body|safe }}
-</article>
-<script>
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-  </script>
+    <article>
+        <h1>{{ post.title }}</h1>
+        {{ post.body|safe }}
+    </article>
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
 </body>
+
 </html>
