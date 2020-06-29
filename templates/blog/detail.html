@@ -1,13 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>{{ post.title }}</title>
+    <link rel="stylesheet"
+      href="{% static 'css/highlight.min.css' %}">
+<script src="{% static 'js/highlight.min.js' %}"></script>
 </head>
 <body>
 <article>
 <h1>{{ post.title }}</h1>
-<p>{{ post.body }}</p>
+{{ post.body|safe }}
 </article>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+  </script>
 </body>
 </html>
