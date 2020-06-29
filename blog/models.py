@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils import timezone
 
 
 # Create your models here.
@@ -29,7 +30,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField('标题', max_length=100)
     body = models.TextField('正文')
-    created_time = models.DateTimeField('创建时间')
+    created_time = models.DateTimeField('创建时间', default=timezone.now)
     modified_time = models.DateTimeField('修改时间')
     excerpt = models.CharField('摘要', max_length=200, blank=True)
     category = models.ForeignKey(
@@ -48,3 +49,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("blog:detail", kwargs={"pk": self.pk})
+
+    def save(self, *args, **kwargs):
+        self.modified_time = timezone.now()
+        super().save(*args, **kwargs)
