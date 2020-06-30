@@ -17,11 +17,18 @@
             <span class="meta-category"><a href="javascript:void(0);">{{ post.category }}</a></span>
 
         </div>
-
+        <table class="post-content-tb">
+        <tr>
+        <td>
         <div class="post-content">
             {{ post.excerpt }}
         </div>
-        <p class="readmore"><a href="{{ post.get_absolute_url }}">阅读全文</a></p>
+        </td>
+        <td class="readmore-td">
+        <div class="readmore"><a href="{{ post.get_absolute_url }}">阅读全文</a></div>
+        </td>
+        </tr>
+        </table>
     </article>
     {% empty %}
     <div class="no-post">Nothing!</div>
