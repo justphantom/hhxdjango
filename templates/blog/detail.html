@@ -1,18 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{% static 'css/highlight.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <script src="{% static 'js/highlight.min.js' %}"></script>
-    <script src="{% static 'js/highlightjs-line-numbers.min.js' %}"></script>
-</head>
-
-<body>
+{% extends 'base.html' %}
+{% block main %}
     <article>
         <h1>{{ post.title }}</h1>
         {{ post.body|safe }}
@@ -20,7 +7,6 @@
     <script>
         hljs.initHighlightingOnLoad();
         hljs.initLineNumbersOnLoad();
+        document.title = "{{ post.title }}";
     </script>
-</body>
-
-</html>
+{% endblock main %}
