@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load comments_extras %}
 {% block main %}
     <article>
         <h1>{{ post.title }}</h1>
@@ -9,4 +10,9 @@
         hljs.initLineNumbersOnLoad();
         document.title = "{{ post.title }}";
     </script>
+    <h3>发表评论</h3>
+    {% show_comment_form post %}
+    <div class="comment_list">
+        {% show_comments post %}
+    </div>
 {% endblock main %}
