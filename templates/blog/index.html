@@ -1,36 +1,24 @@
 {% extends 'base.html' %} %}
 {% block main %}
     {% for post in post_list %}
-        <article class="post">
+        <article class="pure-group">
             <header>
-                <h1 class="post-title">
+                <h1 class="pure-menu-allow-hover">
                     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                 </h1>
             </header>
-            <date class="post-meta meta-date">
-                {{ post.modified_time }}
-            </date>
-
-            <div class="post-meta">
+            <div class="pure-form-message-inline">
+                <span>{{ post.modified_time }}</span>
                 <span>|</span>
-
-                <span class="meta-category"><a href="javascript:void(0);">{{ post.category }}</a></span>
+                <a href="javascript:void(0);"><span>{{ post.category }}</span></a>
 
             </div>
-            <table class="post-content-tb">
-                <tr>
-                    <td>
-                        <div class="post-content">
-                            {{ post.excerpt }}
-                        </div>
-                    </td>
-                    <td class="readmore-td">
-                        <div class="readmore"><a href="{{ post.get_absolute_url }}">阅读全文</a></div>
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <span class="">{{ post.excerpt }}</span>
+                <a href="{{ post.get_absolute_url }}"><span class="pure-button">阅读全文</span></a>
+
         </article>
     {% empty %}
-        <div class="no-post">Nothing!</div>
+        <div class="pure-form-message">Nothing!</div>
     {% endfor %}
 {% endblock main %}
