@@ -1,18 +1,18 @@
 <form action="{% url 'comments:comment' post.pk %}" method="post" class="pure-form">
     {% csrf_token %}
-    <div class="col-md-5">
-        <input class="form-control" type="text" placeholder="{{ form.name.label }}" name="name"
-               id="{{ form.name.id_for_label }}">
+    <fieldset class="pure-group">
+        <input class="pure-input-1-2" type="text" placeholder="{{ form.name.label }}" name="name"
+               id="{{ form.name.id_for_label }}" required>
         {{ form.name.errors }}
-        <input class="form-control" type="email" placeholder="{{ form.email.label }}" name="email"
-               id="{{ form.email.id_for_label }}">
+        <input class="pure-input-1-2" type="email" placeholder="{{ form.email.label }}" name="email"
+               id="{{ form.email.id_for_label }}" required>
         {{ form.email.errors }}
-        <input class="form-control" type="url" placeholder="{{ form.url.label }}" name="url"
+        <input class="pure-input-1-2" type="url" placeholder="{{ form.url.label }}" name="url"
                id="{{ form.url.id_for_label }}">
         {{ form.url.errors }}
-        <textarea class="form-control" type="text" placeholder="{{ form.text.label }}" name="text"
-                  id="{{ form.text.id_for_label }}"></textarea>
+        <textarea class="pure-input-1-2" type="text" placeholder="{{ form.text.label }}" name="text"
+                  id="{{ form.text.id_for_label }}" required></textarea>
         {{ form.text.errors }}
-        <button type="submit" class="form-control">发表</button>
-    </div>
+        <button type="submit" class="pure-button pure-input-1-2">发表</button>
+    </fieldset>
 </form>
