@@ -3,16 +3,15 @@
 {% block main %}
     <article>
         <h1>{{ post.title }}</h1>
+        <hr>
         {{ post.body|safe }}
     </article>
     <script>
-        {#hljs.initHighlightingOnLoad();#}
-        {#hljs.initLineNumbersOnLoad();#}
         document.title = "{{ post.title }}";
     </script>
     <h3>发表评论</h3>
     {% show_comment_form post %}
-    <div class="comment_list">
+    <div class="pure-u">
         {% show_comments post %}
     </div>
 {% endblock main %}
