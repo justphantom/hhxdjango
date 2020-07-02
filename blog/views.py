@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post
 import markdown
+from django.shortcuts import render, get_object_or_404
+
+from .models import Post
 
 
 # from django.http import HttpResponse

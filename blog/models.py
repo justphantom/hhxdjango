@@ -1,9 +1,9 @@
-from django.db import models
+import markdown
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import strip_tags
-import markdown
 
 
 # Create your models here.
