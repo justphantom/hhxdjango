@@ -6,8 +6,8 @@
         {{ post.body|safe }}
     </article>
     <script>
-        hljs.initHighlightingOnLoad();
-        hljs.initLineNumbersOnLoad();
+        {#hljs.initHighlightingOnLoad();#}
+        {#hljs.initLineNumbersOnLoad();#}
         document.title = "{{ post.title }}";
     </script>
     <h3>发表评论</h3>

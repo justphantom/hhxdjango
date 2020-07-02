@@ -5,10 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/highlight.min.css' %}">
-    <script src="{% static 'js/highlight.min.js' %}"></script>
-    <script src="{% static 'js/highlightjs-line-numbers.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {#    <script src="{% static 'js/highlight.min.js' %}"></script>#}
+    {#    <script src="{% static 'js/highlightjs-line-numbers.min.js' %}"></script>#}
     <title>Blog</title>
 </head>
 
@@ -20,7 +21,12 @@
         </div>
     {% endfor %}
 {% endif %}
-<main class="main">
+<form role="search" method="post" id="searchform" action="{% url 'blog:search' %}">
+    {% csrf_token %}
+    <input type="search" name="q" placeholder="搜索" required class="">
+    <button type="submit" class="btn btn-secondary">搜索</button>
+</form>
+<main class="text-body">
     {% block main %}
     {% endblock main %}
 </main>
