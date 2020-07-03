@@ -1,86 +1,77 @@
-p {
-    text-indent: 2em;
-    font-size: 1.2rem;
-}
-
-h1 {
-    text-align: center;
-}
-
-.readmore {
-    font-size: 1rem;
-    padding: 3px 6px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    box-shadow: 0 0 1px 0px #000000;
-    text-indent: 0;
-    text-align: center;
-    width: fit-content;
-}
-
-.post-meta {
-    padding: 0;
-    margin: 9px 0 0;
-    color: #999999;
-    text-align: left;
-    display: inline-block;
-    font-size: 1rem;
-}
-
-.meta-category {
-    position: relative;
-    font-size: 1rem;
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
 }
 
 .post-title {
-    margin: 0;
-    color: #555555;
-    text-align: left;
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+
 }
 
-a {
-    color: #555555;
-    text-decoration: none;
+.post-meta {
+    text-indent: 0;
 }
 
-.post-content {
-    font-size: 1rem;
-    padding-top: 10px;
+.post-date {
+    display: inline;
 }
 
-.codehilite {
-    padding: 0;
+.post-excerpt {
+    text-indent: 0;
 }
 
-.hljs-ln-numbers {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.readmore {
+    border-radius: 2px;
+    border: #0c5460 solid 1px;
+    line-height: 1.5rem;
+    width: auto;
     text-align: center;
-    color: #cccccc;
-    border-right: 1px solid #cccccc;
-    vertical-align: top;
-    padding-right: 5px;
+    white-space: nowrap;
 }
 
-.hljs-ln-n {
-    width: 30px;
+.input-text {
+    width: 50%;
+    border: #4d99bf solid 1px;
+    line-height: 1.5rem;
+    background: transparent;
+    outline: none;
+    margin: 2px;
 }
 
-.hljs-ln .hljs-ln-code {
-    padding-left: 10px;
-    white-space: pre;
+.input-textarea {
+    width: 50%;
+    border: #4d99bf solid 1px;
+    margin: 2px;
 }
 
-.post-content-tb {
-    width: 100%;
+.input-field {
+    width: 80%;
+    border: 0;
 }
 
-.readmore-td {
-    width: 6rem;
+.input-button {
+    width: 50%;
+    line-height: 1.5rem;
+    border: #4d99bf solid 1px;
+    margin: 2px;
+}
+
+.input-search {
+    width: 50%;
+}
+
+.search-button {
+    border: #999999 1px;
+}
+
+p {
+    text-indent: 2em;
+}
+
+.inner {
+    padding: 1.5% 3% 1.5% 3%;
+}
+
+.detail-title {
+    text-align: center;
 }

@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load comments_extras %}
 {% block main %}
-    <article>
-        <h1>{{ post.title }}</h1>
+    <div class="inner">
+        <h1 class="detail-title">{{ post.title }}</h1>
         <hr>
         {{ post.body|safe }}
-    </article>
+    </div>
     <script>
         document.title = "{{ post.title }}";
     </script>
-    <h3>发表评论</h3>
-    {% show_comment_form post %}
-    <div class="pure-u">
+    <div class="inner">
+        <h3>发表评论</h3>
+        {% show_comment_form post %}
         {% show_comments post %}
     </div>
 {% endblock main %}

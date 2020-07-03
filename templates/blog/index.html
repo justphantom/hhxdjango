@@ -1,22 +1,27 @@
 {% extends 'base.html' %} %}
 {% block main %}
+    <form role="search" method="post" action="{% url 'blog:search' %}">
+        {% csrf_token %}
+        <input type="search" name="q" placeholder="输入关键字" required class="input-search">
+        <button type="submit" class="search-button">搜索</button>
+    </form>
     {% for post in post_list %}
-        <article class="pure-group">
+        <article>
             <header>
-                <h1 class="pure-menu-allow-hover">
+                <h2 class="post-title">
                     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                </h1>
+                </h2>
             </header>
-            <div class="pure-form-message-inline">
-                <span>{{ post.modified_time }}</span>
-                <span>|</span>
-                <a href="javascript:void(0);"><span>{{ post.category }}</span></a>
+            <p class="post-meta">
+                <span class="post-date">{{ post.modified_time }}</span>
+                By <span class="post-author">{{ post.author }}</span>
+                Under <a href="javascript:void(0);"><span class="post-category">{{ post.category }}</span></a>
 
-            </div>
-            <div>
-                <span class="">{{ post.excerpt }}</span>
-                <a href="{{ post.get_absolute_url }}"><span class="pure-button">阅读全文</span></a>
-
+            </p>
+            <p class="post-excerpt">
+                <span class="post-excerpt">{{ post.excerpt }}</span>
+                <a href="{{ post.get_absolute_url }}"><span class="readmore">阅读全文</span></a>
+            </p>
         </article>
     {% empty %}
         <div class="pure-form-message">Nothing!</div>
