@@ -70,8 +70,18 @@ p {
 
 .inner {
     padding: 1.5% 3% 1.5% 3%;
+    margin:1.5% 3% 1.5% 3%;
+    border:1px solid #CCCCCC;
 }
 
 .detail-title {
     text-align: center;
+}
+.article {
+    padding: 0.1% 1% 0.1% 1%;
+    margin:1.5% 3% 1.5% 3%;
+    border:1px solid #CCCCCC;
+}
+.post-author {
+    color: rgb(61, 146, 201);
 }
