@@ -7,8 +7,9 @@ __pycache__/
 #idea
 .idea
 venv/
-#vscode
+#vscode&vs
 .vscode
+.vs
 #django
 migrations
 # Distribution / packaging
