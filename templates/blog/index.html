@@ -1,29 +1,30 @@
 {% extends 'base.html' %} %}
 {% block main %}
-    <form role="search" method="post" action="{% url 'blog:search' %}">
-        {% csrf_token %}
-        <input type="search" name="q" placeholder="输入关键字" required class="input-search">
-        <button type="submit" class="search-button">搜索</button>
-    </form>
-    {% for post in post_list %}
-        <article>
-            <header>
-                <h2 class="post-title">
-                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                </h2>
-            </header>
-            <p class="post-meta">
-                <span class="post-date">{{ post.modified_time }}</span>
-                By <span class="post-author">{{ post.author }}</span>
-                Under <a href="javascript:void(0);"><span class="post-category">{{ post.category }}</span></a>
+<form role="search" method="post" action="{% url 'blog:search' %}">
+    {% csrf_token %}
+    <input type="search" name="q" placeholder="输入关键字" required class="input-search">
+    <button type="submit" class="search-button">搜索</button>
+</form>
+{% for post in post_list %}
+<article>
+    <header>
+        <h2 class="post-title">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </h2>
+    </header>
+    <p class="post-meta">
+        <span class="post-date">{{ post.modified_time }}</span>
+        By <span class="post-author">{{ post.author }}</span>
+        Under <a href="javascript:void(0);"><span class="post-category">{{ post.category }}</span></a>
+        Views:<span class="post-views">{{ post.views }}</span>
 
-            </p>
-            <p class="post-excerpt">
-                <span class="post-excerpt">{{ post.excerpt }}</span>
-                <a href="{{ post.get_absolute_url }}"><span class="readmore">阅读全文</span></a>
-            </p>
-        </article>
-    {% empty %}
-        <div class="pure-form-message">Nothing!</div>
-    {% endfor %}
+    </p>
+    <p class="post-excerpt">
+        <span class="post-excerpt">{{ post.excerpt }}</span>
+        <a href="{{ post.get_absolute_url }}"><span class="readmore">阅读全文</span></a>
+    </p>
+</article>
+{% empty %}
+<div class="pure-form-message">Nothing!</div>
+{% endfor %}
 {% endblock main %}

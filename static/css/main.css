@@ -15,6 +15,9 @@ a {
 .post-date {
     display: inline;
 }
+.post-views {
+    color: rgb(61, 146, 201);
+}
 
 .post-excerpt {
     text-indent: 0;
