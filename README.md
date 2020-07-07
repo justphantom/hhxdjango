@@ -5,3 +5,6 @@ django项目，学习自[HelloGitHub-Team/HelloDjango-blog-tutorial](https://git
 django
 
 markdown
+
+#js/css 引用
+[prism](https://github.com/PrismJS/prism)
