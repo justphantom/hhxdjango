@@ -1,7 +1,8 @@
 import markdown
 from django.contrib import messages
 from django.db.models import Q
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+
 from .models import Post
 
 
@@ -9,27 +10,21 @@ from .models import Post
 
 
 # Create your views here.
+def index(request):
+    post_list = Post.objects.all()
+    return render(request, 'blog/index.html', context={'post_list': post_list})
 
-class IndexView(generic.ListView):
-    template_name = 'blog/index.html'
-    model = Post
 
+def detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.body = markdown.markdown(post.body,
+                                  extensions=[
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
+                                  ])
+    return render(request, 'blog/detail.html', context={'post': post})
 
-class DetailView(generic.DetailView):
-    model = Post
-    template_name = 'blog/detail.html'
-
-    def get(self, request, *args, **kwargs):
-        reponse = super(DetailView, self).get(request, *args, **kwargs)
-        self.object.increase_view()
-        return reponse
-
-    def get_object(self, queryset=None):
-        post = super().get_object(queryset=None)
-        md = markdown.Markdown(
-            extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc'])
-        post.body = md.convert(post.body)
-        return post
 
 def search(request):
     q = request.POST.get('q')
