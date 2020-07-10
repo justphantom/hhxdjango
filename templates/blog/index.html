@@ -1,6 +1,6 @@
 {% extends 'base.html' %} %}
 {% block main %}
-<form role="search" method="post" action="{% url 'blog:search' %}">
+<form role="search" method="post" action="{% url 'blog:search' %}" class="search-form">
     {% csrf_token %}
     <input type="search" name="q" placeholder="输入关键字" required class="input-search">
     <button type="submit" class="search-button">搜索</button>
@@ -20,11 +20,10 @@
 
     </p>
     <p class="post-excerpt">
-        <span class="post-excerpt">{{ post.excerpt }}</span>
-        <a href="{{ post.get_absolute_url }}"><span class="readmore">阅读全文</span></a>
+        <span class="post-excerpt">{{ post.excerpt }}</span>        
     </p>
 </article>
 {% empty %}
-<div class="pure-form-message">Nothing!</div>
+<div class="post-empty">Nothing!</div>
 {% endfor %}
 {% endblock main %}

@@ -1,90 +1,99 @@
 a {
-    text-decoration: none;
-    color: rgb(61, 146, 201);
+  text-decoration: none;
+  color: rgb(61, 146, 201);
 }
 
 .post-title {
-    font-size: 1.5rem;
-
+  font-size: 1.5rem;
 }
 
 .post-meta {
-    text-indent: 0;
+  text-indent: 0;
 }
 
 .post-date {
-    display: inline;
+  display: inline;
 }
 .post-views {
-    color: rgb(61, 146, 201);
+  color: rgb(61, 146, 201);
 }
 
 .post-excerpt {
-    text-indent: 0;
+  text-indent: 0;
 }
 
 .readmore {
-    border-radius: 2px;
-    border: #0c5460 solid 1px;
-    line-height: 1.5rem;
-    width: auto;
-    text-align: center;
-    white-space: nowrap;
+  border-radius: 2px;
+  border: #0c5460 solid 1px;
+  line-height: 1.5rem;
+  width: auto;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .input-text {
-    width: 50%;
-    border: #4d99bf solid 1px;
-    line-height: 1.5rem;
-    background: transparent;
-    outline: none;
-    margin: 2px;
+  width: 50%;
+  border: #4d99bf solid 1px;
+  line-height: 1.5rem;
+  background: transparent;
+  outline: none;
+  margin: 2px;
 }
 
 .input-textarea {
-    width: 50%;
-    border: #4d99bf solid 1px;
-    margin: 2px;
+  width: 50%;
+  border: #4d99bf solid 1px;
+  margin: 2px;
 }
 
 .input-field {
-    width: 80%;
-    border: 0;
+  width: 80%;
+  border: 0;
 }
 
 .input-button {
-    width: 50%;
-    line-height: 1.5rem;
-    border: #4d99bf solid 1px;
-    margin: 2px;
+  width: 50%;
+  line-height: 1.5rem;
+  border: #4d99bf solid 1px;
+  margin: 2px;
 }
 
 .input-search {
-    width: 50%;
+  width: 50%;
 }
 
 .search-button {
-    border: #999999 1px;
+  border: #999999 1px;
 }
 
 p {
-    text-indent: 2em;
+  text-indent: 2em;
 }
 
 .inner {
-    padding: 1.5% 3% 1.5% 3%;
-    margin:1.5% 3% 1.5% 3%;
-    border:1px solid #CCCCCC;
+  padding: 1.5% 3% 1.5% 3%;
+  margin: 1.5% 3% 1.5% 3%;
+  border: 1px solid #cccccc;
 }
 
 .detail-title {
-    text-align: center;
+  text-align: center;
 }
-.article {
-    padding: 0.1% 1% 0.1% 1%;
-    margin:1.5% 3% 1.5% 3%;
-    border:1px solid #CCCCCC;
+article {
+  padding: 0.1% 1% 0.1% 1%;
+  margin: 1.5% 3% 1.5% 3%;
+  border: 1px solid #cccccc;
 }
 .post-author {
-    color: rgb(61, 146, 201);
+  color: rgb(61, 146, 201);
+}
+.post-empty {
+  padding: 0.1% 1% 0.1% 1%;
+  margin: 1.5% 3% 1.5% 3%;
+  border: 1px solid #cccccc;
+}
+.search-form {
+  padding: 0.1% 1% 0.1% 1%;
+  margin: 1.5% 3% 1.5% 3%;
+  
 }
