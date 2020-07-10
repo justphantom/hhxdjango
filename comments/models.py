@@ -6,7 +6,7 @@ from django.utils import timezone
 
 
 class Comment(models.Model):
-    name = models.CharField('名字', max_length=50,label='名字')
+    name = models.CharField('名字', max_length=50)
     email = models.EmailField("邮箱")
     url = models.URLField('网址', blank=True)
     text = models.TextField('内容')

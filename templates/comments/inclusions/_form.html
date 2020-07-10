@@ -1,6 +1,0 @@
-<form action="{% url 'comments:comment' post.pk %}" method="post" class="pure-form">
-    {% csrf_token %}
-    {{ show_comment_form }}
-        <button type="submit" class="input-button">发表</button>
-    </fieldset>
-</form>
