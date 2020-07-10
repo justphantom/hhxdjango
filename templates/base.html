@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
-    <script src="{% static 'js/prism.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/Bootstrap/bootstrap.min.css' %}">
     <title>{{ title }}</title>
 </head>
 <body>
@@ -21,5 +19,8 @@
     {% block main %}
     {% endblock main %}
 </main>
+<script src="{% static 'vendor/jQuery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/Popper/popper.min.js' %}"></script>
+<script src="{% static 'vendor/Bootstrap/bootstrap.min.js' %}"></script>
 </body>
 </html>
