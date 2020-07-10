@@ -83,6 +83,7 @@ article {
   padding: 0.1% 1% 0.1% 1%;
   margin: 1.5% 3% 1.5% 3%;
   border: 1px solid #cccccc;
+  border-radius: 5px;
 }
 .post-author {
   color: rgb(61, 146, 201);

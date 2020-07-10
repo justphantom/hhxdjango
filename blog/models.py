@@ -59,7 +59,7 @@ class Post(models.Model):
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
         ])
-        self.excerpt = strip_tags(md.convert(self.body))[:50]
+        self.excerpt = strip_tags(md.convert(self.body))[:100]
         super().save(*args, **kwargs)
 
     def increase_view(self):
