@@ -1,26 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'vendor/Bootstrap/bootstrap.min.css' %}">
     <title>{{ title }}</title>
 </head>
+
 <body>
-{% if messages %}
+    {% if messages %}
     {% for message in messages %}
-        <div class="comment-alert">
-            {{ message }}
-        </div>
+    <div class="alert alter-{{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        {{ message }}
+    </div>
     {% endfor %}
-{% endif %}
-<main>
-    {% block main %}
-    {% endblock main %}
-</main>
-<script src="{% static 'vendor/jQuery/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/Popper/popper.min.js' %}"></script>
-<script src="{% static 'vendor/Bootstrap/bootstrap.min.js' %}"></script>
+    {% endif %}
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+    <script src="{% static 'vendor/jQuery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/Popper/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/Bootstrap/bootstrap.min.js' %}"></script>
 </body>
+
 </html>
