@@ -2,11 +2,6 @@
 {% block main %}
 
 <div class="container">
-    <form role="search" method="post" action="{% url 'blog:search' %}" class="form-inline">
-        {% csrf_token %}
-        <input type="search" name="q" placeholder="输入关键字" required class="form-control">
-        <button type="submit" class="btn">搜索</button>
-    </form>
     {% for post in post_list %}
     <article>
         <header>
