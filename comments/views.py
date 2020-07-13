@@ -15,16 +15,12 @@ def comment(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
     form = CommentForm(request.POST)
     if form.is_valid():
-        comment = Comment()
-        comment.name = form.cleaned_data.get('name')
-        comment.email = form.cleaned_data.get('email')
-        comment.url = form.cleaned_data.get('url')
-        comment.text = form.cleaned_data.get('text')
+        comment = form.save(commit=False)
         comment.post = post
         comment.save()
         messages.add_message(request, messages.SUCCESS,
                              '评论发表成功', extra_tags='success')
     else:
         messages.add_message(request, messages.ERROR,
-                             '评论发表失败', extra_tags='danger')
+                             form.errors, extra_tags='danger')
     return redirect(post)

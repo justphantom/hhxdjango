@@ -24,7 +24,7 @@ def detail(request, pk):
                                   ])
     comment_form = CommentForm()
     comment_list = Comment.objects.filter(post=pk)
-    comment_count=comment_list.count()
+    comment_count = comment_list.count()
     return render(request, 'blog/detail.html', context={'post': post, 'title': post.title, 'comment_form': comment_form, 'comment_list': comment_list, 'comment_count': comment_count})
 
 
