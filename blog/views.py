@@ -37,3 +37,7 @@ def search(request):
     post_list = Post.objects.filter(
         Q(title__icontains=q) | Q(body__icontains=q))
     return render(request, 'blog/index.html', {'post_list': post_list})
+
+
+def page_not_found(request, exception):
+    return render(request, 'errors/404.html')

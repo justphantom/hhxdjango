@@ -24,3 +24,4 @@ urlpatterns = [
     path('', views.index),
     path('book/', include('books.urls')),
 ]
+handler404 = views.page_not_found
