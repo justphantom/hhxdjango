@@ -36,7 +36,7 @@ def search(request):
                              error_msg, extra_tags='danger')
     post_list = Post.objects.filter(
         Q(title__icontains=q) | Q(body__icontains=q))
-    return render(request, 'blog/index.html', {'post_list': post_list})
+    return render(request, 'blog/index.html', {'post_list': post_list, 'title':'Blog'})
 
 
 def page_not_found(request, exception):

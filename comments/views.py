@@ -1,11 +1,10 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import  redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 
 from blog.models import Post
 from .forms import CommentForm
-from .models import Comment
-
+# from .models import Comment
 
 # Create your views here.
 
