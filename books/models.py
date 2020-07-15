@@ -1,7 +1,9 @@
 from django.db import models
 
-
 # Create your models here.
+from django.urls import reverse
+
+
 class BookInfo(models.Model):
     name = models.CharField('书籍', max_length=200)
     author = models.CharField('作者', max_length=50)
@@ -13,6 +15,9 @@ class BookInfo(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("books:chapter", kwargs={"book_pk": self.pk})
 
 
 class Chapter(models.Model):
@@ -29,3 +34,6 @@ class Chapter(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("books:detail", kwargs={"pk": self.pk, "book_pk": self.book.pk})

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} %}
+{% block main %}
+    <div class="container">
+        <ul>
+            {% for chapter in chapter_list %}
+                <li>
+                    <a href="{{ chapter.get_absolute_url }}">{{ chapter.title }}</a>
+                </li>
+            {% empty %}
+                <div class="container">Nothing!</div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock main %}
