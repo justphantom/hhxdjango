@@ -1,27 +1,25 @@
 {% extends 'base.html' %} %}
 {% block main %}
-
-<div class="container">
-    {% for post in post_list %}
-    <article>
-        <header>
-            <h3>
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-            </h3>
-        </header>
-        <p>
-            <span>{{ post.modified_time }}</span>
-            By <span>{{ post.author }}</span>
-            Under <a href="javascript:void(0);"><span>{{ post.category }}</span></a>
-            Views <span>{{ post.views }}</span>
-
-        </p>
-        <p>
-            <span>{{ post.excerpt }}</span>
-        </p>
-    </article>
-    {% empty %}
-    <div class="container">Nothing!</div>
-    {% endfor %}
-</div>
+    <div class="container">
+        {% for post in post_list %}
+            <article>
+                <header>
+                    <h3>
+                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </h3>
+                </header>
+                <p>
+                    <span>{{ post.modified_time }}</span>
+                    By <span>{{ post.author }}</span>
+                    Under <a href="javascript:void(0);"><span>{{ post.category }}</span></a>
+                    Views <span>{{ post.views }}</span>
+                </p>
+                <p>
+                    <span>{{ post.excerpt }}</span>
+                </p>
+            </article>
+        {% empty %}
+            <div class="container">Nothing!</div>
+        {% endfor %}
+    </div>
 {% endblock main %}

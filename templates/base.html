@@ -1,66 +1,63 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon"/>
     <link rel="stylesheet" href="{% static 'vendor/Bootstrap/bootstrap.min.css' %}">
     <title>{{ title }}</title>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/">MySite</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/">Blog</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/book/">Book</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/">Admin</a>
-                </li>
-            </ul>
-            <form role="search" method="post" action="{% url 'blog:search' %}" class="form-inline my-2 my-lg-0">
-                {% csrf_token %}
-                <input type="search" name="q" placeholder="输入关键字" required class="form-control mr-sm-2">
-                <button type="submit" class="btn">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                        <path fill-rule="evenodd"
-                            d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-                    </svg>
-                </button>
-            </form>
-        </div>
-    </nav>
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                aria-hidden="true">&times;</span></button>
-        {{ message }}
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/">MySite</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/blog/">Blog</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/">Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/">Admin</a>
+            </li>
+        </ul>
+        <form role="search" method="post" action="{% url 'blog:search' %}" class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <input type="search" name="q" placeholder="输入关键字" required class="form-control mr-sm-2">
+            <button type="submit" class="btn">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+            </button>
+        </form>
     </div>
+</nav>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            {{ message }}
+        </div>
     {% endfor %}
-    {% endif %}
-    <main>
-        {% block main %}
-        {% endblock main %}
-    </main>
-    <script src="{% static 'vendor/jQuery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/Popper/popper.min.js' %}"></script>
-    <script src="{% static 'vendor/Bootstrap/bootstrap.min.js' %}"></script>
+{% endif %}
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+<script src="{% static 'vendor/jQuery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/Popper/popper.min.js' %}"></script>
+<script src="{% static 'vendor/Bootstrap/bootstrap.min.js' %}"></script>
 </body>
-
 </html>
