@@ -134,4 +134,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 #local settings
-formigrate
+formigrate.py
