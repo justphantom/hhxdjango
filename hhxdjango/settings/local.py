@@ -13,7 +13,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hhxdjango',
+        'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'django',
         'HOST': 'localhost',

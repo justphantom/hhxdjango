@@ -4,9 +4,20 @@ from django.db import models
 from django.urls import reverse
 
 
+class Author(models.Model):
+    name = models.CharField('作者', max_length=100)
+
+    class Meta:
+        verbose_name = '作者'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
 class BookInfo(models.Model):
     name = models.CharField('书籍', max_length=200)
-    author = models.CharField('作者', max_length=50)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField('简介')
 
     class Meta:
