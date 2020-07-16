@@ -36,4 +36,4 @@ class Chapter(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("books:detail", kwargs={"pk": self.pk, "book_pk": self.book.pk})
+        return reverse("books:detail", kwargs={"index": self.index, "book_pk": self.book.pk})

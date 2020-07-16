@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
-    <div class="container" style="text-indent: 2em;">
+    <div class="container">
         <h1 class="detail-title">{{ post.title }}</h1>
         <hr>
         {{ post.body|safe }}
@@ -26,9 +26,4 @@
             {% endfor %}
         </ul>
     </div>
-    <style>
-        span {
-            display: block;
-        }
-    </style>
 {% endblock main %}

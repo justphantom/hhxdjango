@@ -1,19 +1,15 @@
 {% extends 'base.html' %} %}
 {% block main %}
     <div class="container">
-        {% for book in bookinfo_list %}
+        {% for book in book_list %}
             <article>
                 <header>
                     <h3>
                         <a href="{{ book.get_absolute_url }}">{{ book.name }}</a>
                     </h3>
                 </header>
-                <p>
-                    By <span>{{ book.author }}</span>
-                </p>
-                <p>
-                    <span>{{ book.description }}</span>
-                </p>
+                <span>By {{ book.author }}</span>
+                <span>{{ book.description }}</span>
             </article>
         {% empty %}
             <div class="container">Nothing!</div>

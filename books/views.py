@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import BookInfo, Chapter
@@ -5,25 +6,18 @@ import markdown
 
 
 # Create your views here.
-class IndexView(generic.ListView):
-    template_name = 'books/index.html'
-    model = BookInfo
+def index(request):
+    book_list = BookInfo.objects.all()
+    return render(request, 'books/index.html', context={'book_list': book_list, 'title': 'Book', })
 
 
-class ChapterView(generic.ListView):
-    model = Chapter
-    template_name = 'books/chapter.html'
-
-    def get_queryset(self):
-        book = get_object_or_404(BookInfo, pk=self.kwargs.get('book_pk'))
-        return super(ChapterView, self).get_queryset().filter(book=book)
+def chapter(request, book_pk):
+    chapter_list = Chapter.objects.filter(book=book_pk)
+    book_title = BookInfo.objects.get(pk=book_pk).name
+    return render(request, 'books/chapter.html', context={'chapter_list': chapter_list, 'title': book_title, })
 
 
-class DetailView(generic.DetailView):
-    model = Chapter
-    template_name = 'books/detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(DetailView, self).get_context_data(**kwargs)
-        context['title'] = context.get('title')
-        return context
+def detail(request, book_pk, index):
+    chapter = get_object_or_404(Chapter, Q(book=book_pk), Q(index=index))
+    chapter.body = markdown.markdown(chapter.body)
+    return render(request, 'books/detail.html', context={'chapter': chapter, 'title': chapter.title, })

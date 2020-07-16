@@ -8,15 +8,13 @@
                         <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                     </h3>
                 </header>
-                <p>
-                    <span>{{ post.modified_time }}</span>
-                    By <span>{{ post.author }}</span>
-                    Under <a href="javascript:void(0);"><span>{{ post.category }}</span></a>
-                    Views <span>{{ post.views }}</span>
-                </p>
-                <p>
-                    <span>{{ post.excerpt }}</span>
-                </p>
+                <span>
+                    {{ post.modified_time }}
+                    By {{ post.author }}
+                    Under <a href="javascript:void(0);">{{ post.category }}</a>
+                    Views {{ post.views }}
+                </span>
+                <span>{{ post.excerpt }}</span>
             </article>
         {% empty %}
             <div class="container">Nothing!</div>

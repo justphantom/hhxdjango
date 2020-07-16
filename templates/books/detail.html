@@ -3,6 +3,6 @@
     <div class="container">
         <h1>{{ chapter.title }}</h1>
         <hr>
-        {{ chapter.body }}
+        {{ chapter.body|safe }}
     </div>
 {% endblock main %}
