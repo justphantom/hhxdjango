@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['localhost', 'cnhuhx.wicp.net']
+ALLOWED_HOSTS = ['localhost', 'cnhuhx.wicp.net','127.0.0.1']
 
 # Application definition
 

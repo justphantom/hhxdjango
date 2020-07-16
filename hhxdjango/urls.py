@@ -19,6 +19,7 @@ from rest_framework import routers
 from blog import views
 
 router = routers.DefaultRouter()
+# router.register(r'home', views.home)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
