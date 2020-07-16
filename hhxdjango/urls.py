@@ -15,13 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 from blog import views
 
+router = routers.DefaultRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('comment/', include('comments.urls')),
     path('', views.index),
     path('book/', include('books.urls')),
+    path("api/", include(router.urls)),
+    path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
 handler404 = views.page_not_found
