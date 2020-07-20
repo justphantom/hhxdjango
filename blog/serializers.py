@@ -7,7 +7,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            'id',
             'username',
         ]
 
@@ -16,7 +15,6 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = [
-            'id',
             'name',
         ]
 
@@ -28,8 +26,24 @@ class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            'id',
             'title',
+            'created_time',
+            'excerpt',
+            'category',
+            'author',
+            'views',
+        ]
+
+
+class PostRetrieveSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    author = UserSerializer()
+
+    class Meta:
+        model = Post
+        fields = [
+            'title',
+            'body',
             'created_time',
             'excerpt',
             'category',

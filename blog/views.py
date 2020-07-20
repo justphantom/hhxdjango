@@ -6,7 +6,7 @@ from rest_framework.pagination import PageNumberPagination
 # from rest_framework.permissions import AllowAny
 from rest_framework import viewsets, mixins
 from .models import Post
-from .serializers import PostListSerializer
+from .serializers import PostListSerializer, PostRetrieveSerializer
 from comments.forms import CommentForm
 from comments.models import Comment
 
@@ -53,8 +53,16 @@ def page_not_found(request, exception):
     return render(request, 'errors/404.html')
 
 
-class PostViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+class PostViewSet(mixins.ListModelMixin, viewsets.GenericViewSet, mixins.RetrieveModelMixin):
     serializer_class = PostListSerializer
     queryset = Post.objects.all()
     pagination_class = PageNumberPagination
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return PostListSerializer
+        elif self.action == 'retrieve':
+            return PostRetrieveSerializer
+        else:
+            return super().get_serializer_class()
     # permission_classes = [AllowAny]
