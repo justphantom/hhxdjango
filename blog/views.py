@@ -2,15 +2,21 @@ import markdown
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
-# from django.views import generic
+from django.views import generic
 from .models import Post
 from comments.forms import CommentForm
 from comments.models import Comment
-from rest_framework.decorators import api_view
+from comments.views import CommentSerializer
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, mixins, viewsets
 from .serializers import PostListSerializer
 
+class IndexView(generic.ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+    paginate_by = 10
 
 @api_view(http_method_names=["GET"])
 def home(request):
@@ -53,3 +59,19 @@ def search(request):
 
 def page_not_found(request, exception):
     return render(request, 'errors/404.html')
+
+
+class PostViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    serializer_class = PostListSerializer
+
+    @action(
+        methods=['GET'],
+        detail=True,
+        url_path='comments',
+        url_name='comment',
+        serializer_class=CommentSerializer,
+    )
+    def list_comments(self,request,*args,**kwargs):
+        post=self.get_object()
+        queryset=post.comment_set.all()
+        serializer=self.get_serializer()
