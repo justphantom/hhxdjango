@@ -29,10 +29,15 @@ class PostListSerializer(serializers.ModelSerializer):
             'title',
             'created_time',
             'excerpt',
+            'body',
             'category',
             'author',
             'views',
         ]
+        read_only_fields =[
+            "created_time",
+        ]
+
 
 
 class PostRetrieveSerializer(serializers.ModelSerializer):

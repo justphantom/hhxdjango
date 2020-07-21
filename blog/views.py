@@ -56,7 +56,7 @@ def page_not_found(request, exception):
     return render(request, 'errors/404.html')
 
 
-class PostViewSet(mixins.ListModelMixin, viewsets.GenericViewSet, mixins.RetrieveModelMixin):
+class PostViewSet(mixins.ListModelMixin, viewsets.GenericViewSet, mixins.RetrieveModelMixin,mixins.CreateModelMixin):
     serializer_class = PostListSerializer
     queryset = Post.objects.all()
     pagination_class = PageNumberPagination
