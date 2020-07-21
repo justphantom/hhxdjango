@@ -20,8 +20,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class PostListSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
-    author = UserSerializer()
+    # category = CategorySerializer()
+    # author = UserSerializer()
 
     class Meta:
         model = Post
@@ -34,10 +34,13 @@ class PostListSerializer(serializers.ModelSerializer):
             'author',
             'views',
         ]
-        read_only_fields =[
+        read_only_fields = [
             "created_time",
         ]
-
+        extra_kwargs = {
+            "author": {"write_only": True},
+            "category": {"write_only": True},
+        }
 
 
 class PostRetrieveSerializer(serializers.ModelSerializer):
