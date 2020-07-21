@@ -2,9 +2,12 @@ from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import render
 from django.views import generic
+from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 # from rest_framework.permissions import AllowAny
 from rest_framework import viewsets, mixins
+
+from comments.serializers import CommentSerializer
 from .models import Post
 from .serializers import PostListSerializer, PostRetrieveSerializer
 from comments.forms import CommentForm
@@ -65,4 +68,19 @@ class PostViewSet(mixins.ListModelMixin, viewsets.GenericViewSet, mixins.Retriev
             return PostRetrieveSerializer
         else:
             return super().get_serializer_class()
+
     # permission_classes = [AllowAny]
+    @action(
+        methods=["GET"],
+        detail=True,
+        url_path="comments",
+        url_name="comment",
+        pagination_class=PageNumberPagination,
+        serializer_class=CommentSerializer,
+    )
+    def list_comments(self, request, *args, **kwargs):
+        post = self.get_object()
+        queryset = post.comment_set.all()
+        page = self.paginate_queryset(queryset)
+        serializer = self.get_serializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
