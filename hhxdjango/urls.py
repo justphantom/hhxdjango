@@ -16,20 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from blog.views import PostViewSet
+from blog.views import PostViewSet, PostIndexView, page_not_found
 from comments.views import CommentViewSet
-import blog
+
 router = routers.DefaultRouter()
 router.register(r"comments", CommentViewSet, basename="comment")
 router.register(r"post", PostViewSet, basename="post")
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
-    path('comment/', include('comments.urls')),
-    path('', blog.views.PostIndexView.as_view()),
-    path('book/', include('books.urls')),
+    path("admin/", admin.site.urls),
+    path("blog/", include("blog.urls")),
+    path("comment/", include("comments.urls")),
+    path("", PostIndexView.as_view()),
+    path("book/", include("books.urls")),
     path("api/", include(router.urls)),
     path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
 
-handler404 = blog.views.page_not_found
+handler404 = page_not_found
