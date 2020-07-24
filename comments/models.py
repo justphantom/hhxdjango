@@ -11,6 +11,7 @@ class Comment(models.Model):
     url = models.URLField('网址', blank=True)
     text = models.TextField('内容')
     created_time = models.DateTimeField('时间', default=timezone.now)
+    qq = models.CharField('QQ', blank=True, max_length=12)
     post = models.ForeignKey(
         'blog.Post', verbose_name='文章', on_delete=models.CASCADE)
 

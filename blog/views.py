@@ -37,7 +37,7 @@ class PostDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['title'] = context.get('object')
         context['comment_form'] = CommentForm()
-        # context['comment_list'] = Comment.objects.all()
+        context['comment_list'] = Comment.objects.all()
         return context
 
 
