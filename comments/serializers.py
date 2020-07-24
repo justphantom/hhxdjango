@@ -8,6 +8,8 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = [
             'name',
             'email',
+            'qq',
+            'wechat',
             'url',
             'text',
             'created_time',
