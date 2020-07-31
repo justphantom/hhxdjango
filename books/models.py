@@ -19,8 +19,8 @@ class BookInfo(models.Model):
     name = models.CharField('书籍', max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField('简介')
-    create_time=models.DateTimeField('创建时间')
-    index=models.IntegerField('顺序')
+    create_time = models.DateTimeField('创建时间')
+    index = models.IntegerField('顺序')
 
     class Meta:
         verbose_name = '书籍'
