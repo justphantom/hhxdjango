@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from blog.views import PostViewSet, PostIndexView, page_not_found
+from posts.views import PostViewSet, PostIndexView, page_not_found
 from comments.views import CommentViewSet
 
 router = routers.DefaultRouter()
@@ -24,7 +24,7 @@ router.register(r"comments", CommentViewSet, basename="comment")
 router.register(r"post", PostViewSet, basename="post")
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("blog/", include("blog.urls")),
+    path("post/", include("posts.urls")),
     path("comment/", include("comments.urls")),
     path("", PostIndexView.as_view()),
     path("book/", include("books.urls")),

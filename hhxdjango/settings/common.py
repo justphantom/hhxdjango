@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'blog.apps.BlogConfig',
+    'posts.apps.PostsConfig',
     'comments.apps.CommentsConfig',
     'books.apps.BooksConfig',
 ]

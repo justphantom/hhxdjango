@@ -16,7 +16,7 @@ from comments.models import Comment
 
 class PostIndexView(generic.ListView):
     model = Post
-    template_name = 'blog/index.html'
+    template_name = 'posts/index.html'
     paginate_by = 10
 
     # context_object_name = 'post_list'
@@ -29,7 +29,7 @@ class PostIndexView(generic.ListView):
 
 class PostDetailView(generic.DetailView):
     model = Post
-    template_name = 'blog/detail.html'
+    template_name = 'posts/detail.html'
 
     # context_object_name = 'post'
 
@@ -49,7 +49,7 @@ def search(request):
                              error_msg, extra_tags='danger')
     post_list = Post.objects.filter(
         Q(title__icontains=q) | Q(body__icontains=q))
-    return render(request, 'blog/index.html', {'post_list': post_list, 'title': 'Blog'})
+    return render(request, 'posts/index.html', {'post_list': post_list, 'title': 'Blog'})
 
 
 def page_not_found(request, exception):

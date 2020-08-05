@@ -51,7 +51,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("blog:detail", kwargs={"pk": self.pk})
+        return reverse("posts:detail", kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):
         self.modified_time = timezone.now()

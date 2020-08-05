@@ -14,7 +14,7 @@ class Comment(models.Model):
     qq = models.CharField('QQ', blank=True, max_length=12)
     wechat = models.CharField('微信', blank=True, max_length=20)
     post = models.ForeignKey(
-        'blog.Post', verbose_name='文章', on_delete=models.CASCADE)
+        'posts.Post', verbose_name='文章', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = '评论'

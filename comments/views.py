@@ -3,7 +3,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from rest_framework import mixins, viewsets
 
-from blog.models import Post
+from posts.models import Post
 from .forms import CommentForm
 from .serializers import CommentSerializer
 from .models import Comment
