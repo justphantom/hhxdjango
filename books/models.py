@@ -20,7 +20,7 @@ class BookInfo(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField('简介')
     create_time = models.DateTimeField('创建时间', auto_now=True)
-    index = models.IntegerField('顺序', blank=True)
+    index = models.IntegerField('顺序', default=1)
 
     class Meta:
         verbose_name = '书籍'
