@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class PostsConfig(AppConfig):
     name = 'posts'
-    verbose_name = '文章'
+    verbose_name = '博客'
