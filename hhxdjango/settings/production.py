@@ -7,7 +7,7 @@ DEBUG = False
 # DEBUG = True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+STATIC_ROOT = "/static/"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
