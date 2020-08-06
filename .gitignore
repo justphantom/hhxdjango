@@ -12,8 +12,8 @@ venv/
 .vs
 #django
 migrations
-static/admin
-static/rest_framework
+#static/admin
+#static/rest_framework
 # Distribution / packaging
 .Python
 build/
