@@ -22,4 +22,4 @@ DATABASES = {
 }
 # USE_X_FORWARDED_HOST = True
 # USE_X_FORWARDED_PORT = True
-STATIC_ROOT = "/repos/hhxdjango/statics"
+# STATIC_ROOT = "/repos/hhxdjango/static"

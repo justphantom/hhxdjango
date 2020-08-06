@@ -7,6 +7,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'created_time',
                     'modified_time', 'category', 'author']
     fields = ['title', 'body', 'excerpt', 'category', 'tags']
+    search_fields = ['title', 'body', 'excerpt']
+    list_filter = ['category']
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user

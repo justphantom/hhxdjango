@@ -19,12 +19,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['localhost', 'cnhuhx.wicp.net', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'bootstrap_admin',
     'django.contrib.admin',
+    'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
     'books.apps.BooksConfig',
     'basic.apps.BasicConfig',
+    'config.apps.ConfigConfig',
 ]
 
 MIDDLEWARE = [

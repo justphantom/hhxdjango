@@ -23,6 +23,7 @@ router = routers.DefaultRouter()
 router.register(r"comments", CommentViewSet, basename="comment")
 router.register(r"post", PostViewSet, basename="post")
 urlpatterns = [
+    path("admin/doc/", include("django.contrib.admindocs.urls")),
     path("admin/", admin.site.urls),
     path("post/", include("posts.urls")),
     path("comment/", include("comments.urls")),

@@ -4,7 +4,9 @@ from .models import ProcessInfo
 
 # Register your models here.
 class ProcessInfoAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in ProcessInfo._meta.get_fields()]
+    list_display = ['processno', 'processname']
+    # list_editable = ['processname']
+    search_fields = ["processname"]
 
 
 admin.site.register(ProcessInfo, ProcessInfoAdmin)
