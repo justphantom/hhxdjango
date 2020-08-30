@@ -1,21 +1,18 @@
 from rest_framework import serializers
-from .models import Comment
+from .models import ProductInfo
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comment
+        model = ProductInfo
         fields = [
+            'code',
             'name',
-            'email',
-            'qq',
-            'wechat',
-            'url',
-            'text',
-            'created_time',
-            'post',
+            'model',
+            'createtime',
+            'modifytime',
         ]
         read_only_fields = [
-            'created_time',
+            'createtime',
         ]
-        extra_kwargs = {"post": {"write_only": True}}
+        extra_kwargs = {"type": {"write_only": True}}
